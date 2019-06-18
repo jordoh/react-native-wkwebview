@@ -126,6 +126,18 @@ RCT_EXPORT_METHOD(canGoForward:(nonnull NSNumber *)reactTag
   }];
 }
 
+RCT_EXPORT_METHOD(blur:(nonnull NSNumber *)reactTag)
+{
+  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, CRAWKWebView *> *viewRegistry) {
+    CRAWKWebView *view = viewRegistry[reactTag];
+    if (![view isKindOfClass:[CRAWKWebView class]]) {
+      RCTLogError(@"Invalid view returned from registry, expecting CRAWKWebView, got: %@", view);
+    } else {
+      [view blur];
+    }
+  }];
+}
+
 RCT_EXPORT_METHOD(reload:(nonnull NSNumber *)reactTag)
 {
   [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, CRAWKWebView *> *viewRegistry) {

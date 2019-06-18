@@ -46,6 +46,7 @@ shouldStartLoadForRequest:(NSMutableDictionary<NSString *, id> *)request
 - (void)goBack;
 - (BOOL)canGoBack;
 - (BOOL)canGoForward;
+- (void)blur;
 - (void)reload;
 - (void)stopLoading;
 - (void)postMessage:(NSString *)message;

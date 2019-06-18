@@ -336,6 +336,11 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
   return [_webView canGoForward];
 }
 
+- (void)blur
+{
+  [_webView resignFirstResponder];
+}
+
 - (void)reload
 {
   [_webView reload];

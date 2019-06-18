@@ -424,6 +424,17 @@ class WKWebView extends React.Component {
   };
 
   /**
+   * Resign first responder status, blurring the webview
+   */
+  blur = () => {
+    UIManager.dispatchViewManagerCommand(
+      this.getWebViewHandle(),
+      this.getCRAWKWebView().Commands.blur,
+      null
+    );
+  };
+
+  /**
    * Reloads the current page.
    */
   reload = () => {
